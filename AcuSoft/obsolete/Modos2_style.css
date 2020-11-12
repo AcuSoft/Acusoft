@@ -1,0 +1,160 @@
+body {
+    font-family: Monserrat, sans-serif;
+}
+
+div#General{
+
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+}
+
+div#L{
+    float: left;
+    height: 100%;
+    width: 73%;
+    
+}
+
+div#L1{
+    margin:auto;
+}
+
+div#R{
+    float: right;   
+    height: 100%;
+    width: 27%;
+    }
+
+div#R1{
+    float:left;
+    width: 100%;
+    box-shadow:0px 0px 0px 1px black inset;
+    margin-bottom: 2%;
+    
+}
+
+div#R2{
+    float:right;
+    width: 100%;
+    margin-bottom: 2%;
+    box-shadow:0px 0px 0px 1px black inset;
+
+}
+
+div#R3{
+	margin:auto;
+    width: 100%;
+    
+}
+
+table.conteo{
+    width: 98%;
+    border-collapse: collapse;
+}
+
+table.conteo th {
+    padding:0.5%;
+    width: 1%;
+    background-color:#ffc000;
+	border-bottom: solid 5px #d5a103;
+}
+
+table.conteo td {
+    text-align: center;
+    padding:0.5%;
+    width: 1%;
+    border-bottom: solid 2px #a4a4a4;
+    
+}
+
+table.conteo td:hover{
+    box-shadow:0px 0px 0px 1px black inset;
+}
+
+
+
+
+table.freq{
+    width: 20%;
+    border-collapse: collapse;
+}
+
+table.freq th {
+    padding:2%;
+    background-color:#ffc000;
+	border-bottom: solid 5px #d5a103;
+}
+
+table.freq td {
+    text-align: center;
+    padding:1%;
+    border-bottom: solid 1px #a4a4a4;
+    
+}
+
+table.freq td:hover{
+    box-shadow:0px 0px 0px 1px black inset;
+}
+
+
+
+table.inspectordimensiones{
+    margin:auto;
+    width:90%;
+    border-collapse: collapse;
+    text-align: left;
+    
+    
+    
+}
+
+table.inspectordimensiones th{
+    padding: 1%;
+    border-bottom: 1px solid #ddd;
+    width: 50%;
+}
+
+table.inspectordimensiones td{
+    padding: 1%;
+    border-bottom: 1px solid #ddd;
+    width: 50%;
+    
+}
+
+table.RT60{
+	margin:auto;	
+	width: 100%;
+}
+table.RT60 th{
+	margin:auto;	
+	width: 40%;
+	height: 100%;
+	background-color: #ffc000;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+}
+table.RT60 td{
+	margin:auto;
+	width: 60%;
+	height: 100%;
+	background-color: #ffffff;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+
+.input{
+    width: 100%;
+}
+
+.boton{
+	margin:auto;
+	text-align: center;
+	width: 90%;
+	height: 30px;
+	margin-top: 20px;
+}

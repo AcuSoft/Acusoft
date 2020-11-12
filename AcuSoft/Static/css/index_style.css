@@ -1,0 +1,31 @@
+* {
+  box-sizing:border-box;
+  margin: 0;
+  padding: 0;
+}
+
+li, a {
+  font-family:Monserrat, sans-serif;
+}
+
+header{
+  display: flex;
+  padding: 30px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+  background-color: #d9d9d9;
+}
+
+.nav_links {
+  list-style: none;
+}
+
+.nav_links li {
+  display: inline-block;
+  padding: 0px 20x;
+}
+
+div#Gen {
+  background-color: black;
+}

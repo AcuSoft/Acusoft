@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		{% block styles %}
+		{% endblock %}
+
+		<link rel="stylesheet" type="text/css" href="{% static 'css/index_style.css'%}">
+		
+		<title>{%block title%}{% endblock %}</title>
+		
+		<script src="{% static 'jQuery/jquery-3.5.1.js' %}"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+		
+	</head>
+	<body>
+		<header>
+			<nav>
+				<ul class="nav_links">
+					<li><a href = "/">			Acusoft				</a></li>
+					<li><a href = "/RT60/">		RT60				</a></li>
+					<li><a href = "/Modos/">	Analisis Modal		</a></li>
+					<li><a href = "/Paneles/">	Diseño de Paneles	</a></li>
+				</ul>
+			</nav>
+		</header>
+		{% block content %}{% endblock %}
+		{% block js %}{% endblock %}
+		<script src="{% static 'js/RT60.js' %}"></script>
+		<script src="{% static 'js/Paneles.js' %}"></script>
+		<script src="{% static 'js/Modos.js' %}"></script>
+		
+	</body>	
+</html>

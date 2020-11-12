@@ -1,0 +1,249 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/Modos_style.css'%}">
+{% endblock %}
+
+{% block title %}Análisis Modal{% endblock %}
+{% block content %}
+<form method="GET" action="/Modos_resp/" id="Modos_Form" >
+	<div id = "General">
+		<div id = "L">
+			<br>
+			<div id = "L2">
+			<table  id = "tabla1" class = "conteo">
+				<colgroup>
+					<col width = "5%" style="background-color:#ffd966">
+				</colgroup>
+				<thead>
+					<tr>
+						<th>Ancho de Banda</th>
+						<th>20 Hz</th>
+						<th>25 Hz</th>
+						<th>31 Hz</th>
+						<th>40 Hz</th>
+						<th>50 Hz</th>
+						<th>63 Hz</th>
+						<th>80 Hz</th>
+						<th>100 Hz</th>
+						<th>125 Hz</th>
+						<th>160 Hz</th>
+						<th>200 Hz</th>
+						<th>250 Hz</th>
+						<th>315 Hz</th>
+						<th>400 Hz</th>
+						<th>500 Hz</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>Ancho</td>
+					<script>
+						for (i=1;i<16;i++){
+						document.write("<td id = 'td_xmA"+ i +"'></td>");	
+						}
+					</script>      
+				</tr>
+				<tr>
+					<td>Altura</td>
+					<script>
+						for (i=1;i<16;i++){
+						document.write("<td id = 'td_ymA"+ i +"'></td>");	
+						}
+					</script>      
+				</tr>
+				<tr>
+					<td>Profundidad</td>
+					<script>
+						for (i=1;i<16;i++){
+						document.write("<td id = 'td_zmA"+ i +"'></td>");	
+						}
+					</script>      
+				</tr>
+				<tr>
+					<td>Total</td>
+					<script>
+						for (i=1;i<16;i++){
+						document.write("<td id = 'td_smA"+ i +"'></td>");	
+						}
+					</script>      		
+				</tr>
+			</table>
+
+		</div>
+			<div id = "L3">
+				<canvas id = "myChart">
+
+				</canvas>
+			</div>
+			<br>
+			<div id = "L4">
+				<table id ="tabla2" class = "freq" >
+				<colgroup>
+					<col width = "3%" style="background-color:#ffd966">
+					<col width = "30%" style="background-color:#ffffff">
+					<col width = "30%" style="background-color:#ffffff">
+					<col width = "30%" style="background-color:#ffffff">
+				</colgroup>
+				<thead>
+					<th>n</th>
+					<th>Ancho</th>
+					<th>Altura</th>
+					<th>Profundidad</th>
+				</thead>
+				<script>
+					for (var i = 0; i<20;i++){
+					document.write("<tr>")
+					document.write("<td id='td_n" + i + "'>" + (i+1) +"</td>")
+					document.write('<td id="td_xfA'+ i +'"></td>')
+					document.write('<td id="td_yfA'+ i +'"></td>')
+					document.write('<td id="td_zfA'+ i +'"></td>')
+					}
+				</script>
+				</table>				
+			</div>
+
+		</div>
+
+		
+
+		
+
+		<div id = "R">
+			<br>
+			<div id = "R1">
+				<br>
+				<table class="inspectordimensiones">
+					<tr>
+						<th>Ancho</th>
+						<td>
+							<p><input
+								id = "x"
+								class = "input"
+								type="number" 
+								step ="0.1" 
+								name="x"/>       
+						</td>
+					</tr>
+					<tr>
+						<th>Altura</th>
+						<td>
+							<p><input
+							id = "y"
+							class = "input"
+							type="number"
+							step ="0.1" 
+							name="y"/>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Profundidad</th>
+						<td>
+							<p><input
+							id = "z"
+							class = "input"
+							type="number" 
+							step ="0.1" 
+							name="z"/>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<th>Cuarto</th>
+						<td>
+							<select id = "Tipo_Cuarto" type="select">
+								<option value="Personalizado">Personalizado</option>
+								<option value="Voz">Voz hablada</option>
+								<option value="Jazz">Música Jazz</option>
+								<option value="Orquesta">Música Orquestal</option>
+								<option value="Religiosa">Música Religiosa</option>
+								
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th>RT60</th>
+						<td>
+							<p><input
+							id = "RT60"
+							class = "input"
+							type="number" 
+							step ="0.1" 
+							name="RT60"/></p>
+						</td>
+					</tr>
+				</table>
+				<br>
+				<table class="proporciones">
+					<tr>
+						<th>Proporciones</th>
+						<td id = "td_xp"></td>
+						<td id = "td_yp"></td>
+						<td id = "td_zp"></td>
+					</tr>
+				</table>
+				<br>
+				<div style="text-align: center;">
+					<input 	id = "Calcular"
+							class = "boton"
+							type="submit"
+							value="Calcular">
+				
+				</div>
+				<br>
+				</form>
+			</div>
+			<div id="R2">
+		
+		<table class = "regiones">
+			<tr><th>Regiones</th></tr>
+			<tr>
+				<th>A</th>
+				<td id = "td_f1A"></td>
+				<td id = "td_f1B"></td>
+			</tr>
+			<tr>
+				<th>B</th>
+				<td id = "td_f2A"></td>
+				<td id = "td_f2B"></td>
+			</tr>
+			<tr>
+				<th>C</th>
+				<td id = "td_f3A"></td>
+				<td id = "td_f3B"></td>
+			</tr>
+			<tr>
+				<th>D</th>
+				<td id = "td_f4A"></td>
+				<td id = "td_f4B"></td>
+			</tr>
+			<br>
+		</table>
+		<br>
+		<table class = "inspectordimensiones">
+			<tr>
+				<th>Ancho de Banda Modal</th>
+				<td id = "td_bw"></td>
+			</tr>
+			<tr>
+				<th>Frec. de Schroeder</th>
+				<td id = "td_sf"></td>
+			</tr>
+		</table>
+		<br>
+		<!-- <br>
+		<div style="text-align: center;">
+			<input 	id = "Conteo"
+					class = "boton2"
+					type="button"
+					value="Conteo">
+	
+				<input 	id = "Grafica"
+					class = "boton2"
+					type="button"
+					value="Gráfica">
+		</div>
+		<br> -->
+		</div>
+{% endblock %}

@@ -1,0 +1,277 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/Modos_style.css'%}">
+{% endblock %}
+
+{% block title %}Análisis Modal{% endblock %}
+{% block content %}
+<div id = "General">
+	<div id = "L">
+		<form method="GET" action="/Modos_resp/" id="Modos_Form" >
+			<br>
+		<div id = "L2">
+			
+		</div>
+		<table  class = "table1">
+			<colgroup>
+				<col width = "300px">
+			</colgroup>
+			<thead>
+				<tr>
+					<th>Ancho de Banda</th>
+					<th>20 Hz</th>
+					<th>25 Hz</th>
+					<th>31 Hz</th>
+					<th>40 Hz</th>
+					<th>50 Hz</th>
+					<th>63 Hz</th>
+					<th>80 Hz</th>
+					<th>100 Hz</th>
+					<th>125 Hz</th>
+					<th>160 Hz</th>
+					<th>200 Hz</th>
+					<th>250 Hz</th>
+					<th>315 Hz</th>
+					<th>400 Hz</th>
+					<th>500 Hz</th>
+				</tr>
+			</thead>
+			<tr>
+				<td>Ancho</td>
+				<td id = "td_xmA1"></td>
+				<td id = "td_xmA2"></td>
+				<td id = "td_xmA3"></td>
+				<td id = "td_xmA4"></td>
+				<td id = "td_xmA5"></td>
+				<td id = "td_xmA6"></td>
+				<td id = "td_xmA7"></td>
+				<td id = "td_xmA8"></td>
+				<td id = "td_xmA9"></td>
+				<td id = "td_xmA10"></td>
+				<td id = "td_xmA11"></td>
+				<td id = "td_xmA12"></td>
+				<td id = "td_xmA13"></td>
+				<td id = "td_xmA14"></td>
+				<td id = "td_xmA15"></td>
+			</tr>
+			<tr>
+				<td>Altura</td>
+				<td id = "td_ymA1"></td>
+				<td id = "td_ymA2"></td>
+				<td id = "td_ymA3"></td>
+				<td id = "td_ymA4"></td>
+				<td id = "td_ymA5"></td>
+				<td id = "td_ymA6"></td>
+				<td id = "td_ymA7"></td>
+				<td id = "td_ymA8"></td>
+				<td id = "td_ymA9"></td>
+				<td id = "td_ymA10"></td>
+				<td id = "td_ymA11"></td>
+				<td id = "td_ymA12"></td>
+				<td id = "td_ymA13"></td>
+				<td id = "td_ymA14"></td>
+				<td id = "td_ymA15"></td>
+			</tr>
+			<tr>
+				<td>Profundidad</td>
+				<td id = "td_zmA1"></td>
+				<td id = "td_zmA2"></td>
+				<td id = "td_zmA3"></td>
+				<td id = "td_zmA4"></td>
+				<td id = "td_zmA5"></td>
+				<td id = "td_zmA6"></td>
+				<td id = "td_zmA7"></td>
+				<td id = "td_zmA8"></td>
+				<td id = "td_zmA9"></td>
+				<td id = "td_zmA10"></td>
+				<td id = "td_zmA11"></td>
+				<td id = "td_zmA12"></td>
+				<td id = "td_zmA13"></td>
+				<td id = "td_zmA14"></td>
+				<td id = "td_zmA15"></td>
+			</tr>
+			<tr>
+				<td>Total</td>
+				<td id = "td_smA1"></td>
+				<td id = "td_smA2"></td>
+				<td id = "td_smA3"></td>
+				<td id = "td_smA4"></td>
+				<td id = "td_smA5"></td>
+				<td id = "td_smA6"></td>
+				<td id = "td_smA7"></td>
+				<td id = "td_smA8"></td>
+				<td id = "td_smA9"></td>
+				<td id = "td_smA10"></td>
+				<td id = "td_smA11"></td>
+				<td id = "td_smA12"></td>
+				<td id = "td_smA13"></td>
+				<td id = "td_smA14"></td>
+				<td id = "td_smA15"></td>			
+			</tr>
+		</table>
+		<br>
+		<div id = "L1">
+			<canvas id = "myChart" width="400" height="400">
+
+			</canvas>
+		</div>
+		
+		<table class = "table12">
+			<colgroup>
+				<col width = "50px">
+				<col width = "130px">
+				<col width = "130px">
+				<col width = "130px">
+			</colgroup>
+			<thead>
+				<th>n</th>
+				<th>Ancho</th>
+				<th>Altura</th>
+				<th>Profundidad</th>
+			</thead>
+			<script>
+				for (var i = 0; i<20;i++){
+				document.write("<tr>")
+				document.write("<td id='td_n" + i + "'>" + (i+1) +"</td>")
+				document.write('<td id="td_xfA'+ i +'"></td>')
+				document.write('<td id="td_yfA'+ i +'"></td>')
+				document.write('<td id="td_zfA'+ i +'"></td>')
+				}
+			</script>
+		</table>
+		
+	</div>
+
+	<div id = "R">		
+		<div id ="R1">
+			<table class="table3">
+				<tr>
+					<th><h2>Recinto</h2></th>
+					<td><p><input type="text" name="nm"/></td>
+				</tr>
+			</table>
+		</div>
+		<div id = "R2">
+			<br>						
+			<table class="table2">
+				<tr>
+					<th>Ancho</th>
+					<td>
+						<p><input
+							id = "x"
+							type="number" 
+							step ="0.1" 
+							name="x"/>
+							<span style="margin-left:10px;">m</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<th>Altura</th>
+					<td>
+						<p><input
+						id = "y" 
+						type="number" 
+						step ="0.1" 
+						name="y"/>
+						<span style="margin-left:10px;">m</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<th>Profundidad</th>
+					<td>
+						<p><input
+						id = "z"
+						type="number" 
+						step ="0.1" 
+						name="z"/>
+						<span style="margin-left:10px;">m</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<th>RT60</th>
+					<td>
+						<p><input
+						id = "RT60"
+						type="number" 
+						step ="0.1" 
+						name="RT60"/>
+						<span style="margin-left:10px;">s</span>
+						</p>
+					</td>
+				</tr>
+			</table>
+			<br>
+			<table class="table2">
+				<tr>
+					<th>Proporciones</th>
+					<td id = "td_xp"></td>
+					<td id = "td_yp"></td>
+					<td id = "td_zp"></td>
+				</tr>
+			</table>
+			<div style="text-align: center;">
+				<input 	id = "Calcular"
+						class = "boton"
+						type="submit"
+						value="Calcular">
+			</div>
+			
+		</div>
+		<div id = "R3">
+			<br>
+				
+				<table class = "table2">
+					<tr><th>Regiones</th></tr>
+					<tr>
+						<th>A</th>
+						<td id = "td_f1A"></td>
+						<td id = "td_f1B"></td>
+					</tr>
+					<tr>
+						<th>B</th>
+						<td id = "td_f2A"></td>
+						<td id = "td_f2B"></td>
+					</tr>
+					<tr>
+						<th>C</th>
+						<td id = "td_f3A"></td>
+						<td id = "td_f3B"></td>
+					</tr>
+					<tr>
+						<th>D</th>
+						<td id = "td_f4A"></td>
+						<td id = "td_f4B"></td>
+					</tr>
+					<br>
+				</table>
+				<br>
+				<table class = "table2">
+					<tr>
+						<th>Ancho de Banda Modal</th>
+						<td id = "td_bw"></td>
+					</tr>
+					<tr>
+						<th>Frec. de Schroeder</th>
+						<td id = "td_sf"></td>
+					</tr>
+				</table>
+			<br>
+			
+
+		
+	</form>
+
+	
+
+		</div>
+		<div id = "R4">
+			
+		</div>
+	</div>
+</div>
+{% endblock %}

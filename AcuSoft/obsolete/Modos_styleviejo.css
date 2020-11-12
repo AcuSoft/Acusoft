@@ -1,0 +1,223 @@
+* {
+	margin:0px;
+	padding:0px;
+}
+
+body {
+	background-color: #ffffff;
+	font-family: Monserrat, sans-serif;
+}
+
+div#General{
+	margin:auto;
+	width: 1920px;
+	height: 1055px;
+	background-color: #ffffff;
+}
+
+div#L{
+	margin:auto;
+	width: 1300px;
+	height: 980px;
+	background-color: #ffffff;
+	margin-top: 25px;
+	margin-left: 50px;
+	float: left;
+}
+
+div#L1{
+	margin:auto;
+	float:right;
+	width: 500px;
+	height: 500px;
+}
+
+div#L2{
+		height: 200px;
+		width:1260px;
+}
+
+div#R{
+	float: right;
+	margin:auto;
+	margin-top: 25px;
+	margin-right: 50px;
+	width: 520px;
+	height: 980px;
+	background-color: #ffffff;
+
+}
+
+div#R1{
+	margin:auto;
+	margin-top: 20px;
+	margin-left: 20px;
+	width: 480px;
+	height: 40px;
+	background-color: #ffffff;
+	
+}
+
+div#R2{
+	margin:auto;
+	margin-top: 20px;
+	margin-left: 20px;
+	width: 480px;
+	height: 240px;
+	background-color: #ffffff;
+	border:solid 2px black;
+}
+
+div#R3{
+	margin:auto;
+	margin-top: 20px;
+	margin-left: 20px;
+	width: 480px;
+	height: 520px;
+	background-color: #ffffff;
+	border:solid 2px black;
+	
+}
+
+div#R4{
+	margin:auto;
+	margin-top: 20px;
+	margin-left: 20px;
+	width: 480px;
+	height: 80px;
+	background-color: #ffffff;
+	
+}
+
+
+
+
+
+table.table1 {
+	width: 1260px;
+	margin:auto;
+	margin-top: 0px;
+	margin-left: 20px;
+  	border-collapse: collapse;
+  	padding: 0px;
+	background-color: #ffffff;
+	border-bottom: solid 2px #a4a4a4;
+	font-size: 14px;
+	
+}
+table.table1 th, table.table1 td, th:hover{
+	padding: 10px;
+	width: 82px;
+}
+table.table1 thead {
+	background-color: #ffc000;
+	border-bottom: solid 5px #d5a103;
+	color:black;
+	text-align: center;
+}
+table.table1 td:hover {
+	border:solid 2px black;
+}
+
+table.table1 td {
+	text-align: center;
+	width: 108px;
+}
+
+table.table12 {
+	width: 450px;
+	margin:auto;
+	margin-top: 0px;
+	margin-left: 20px;
+  	border-collapse: collapse;
+  	padding: 10px;
+	background-color: #ffffff;
+	border-bottom: solid 2px #a4a4a4;
+	font-size: 14px;
+	
+}
+table.table12 th, table.table12 td, th:hover{
+	padding: 5px;
+}
+table.table12 thead {
+	background-color: #ffc000;
+	border-bottom: solid 5px #d5a103;
+	color:black;
+	text-align: center;
+}
+
+
+table.table12 td {
+	text-align: center;
+}
+
+
+
+
+
+table.table2 {
+	width: 440px;
+	margin:auto;
+	text-align: left;
+  	border-collapse: collapse;
+  	padding: 20px;
+}
+table.table2 th, table.table2 td{
+	padding: 5px;
+	text-align: left;
+  	border-bottom: 1px solid #ddd;
+}
+table.table2 th {
+	width: 50%;
+}
+
+
+
+
+
+table.table3{
+	margin:auto;	
+	width: 480px;
+	height: 100%;
+}
+table.table3 th{
+	margin:auto;	
+	width: 192px;
+	height: 100%;
+	background-color: #ffc000;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+}
+table.table3 td{
+	margin:auto;
+	width: 288px;
+	height: 100%;
+	background-color: #ffffff;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+
+input[type=text] {
+  width: 100%;
+  padding: 11px 20px;
+  box-sizing: border-box;
+}
+
+.boton{
+	margin:auto;
+	text-align: center;
+	width: 288px;
+	height: 30px;
+	margin-top: 20px;
+}
+
+.boton2{
+	margin:auto;
+	text-align: center;
+	width: 142px;
+	height: 30px;
+	margin-top: 10px;
+}

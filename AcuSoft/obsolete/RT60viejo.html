@@ -1,0 +1,403 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/RT60_style.css'%}">
+{% endblock %}
+
+{% block title %}Cálculo RT60{% endblock %}
+{% block content %}
+<div id = "General">
+	<div id = "L">
+		<form method="GET" action="/RT60_resp/" id="RT60_Form" >
+			<br>
+		<table  class = "table1">
+			  	<colgroup>
+			    	<col width = "250px" style="background-color:#ffd966">
+					<col width = "250px" style="background-color:#fff6b7">
+			  	</colgroup>
+			<thead>
+				<tr>
+					<th>Pared</th>
+					<th>Material</th>
+					<th>Superficie</th>
+					<th>125 hz</th>
+					<th>250 hz</th>
+					<th>500 hz</th>
+					<th>1000 hz</th>
+					<th>2000 hz</th>
+					<th>4000 hz</th>
+				</tr>
+			</thead>
+		</table>		
+		<table id = "Tabla_T" class = "table1">
+			<colgroup>
+			    	<col width = "250px" style="background-color:#ffd966">
+					<col width = "250px" style="background-color:#fff6b7">
+			  	</colgroup>
+			<tr>
+				<td id="td_T">
+					Techo
+				</td>
+				<td>
+					<select id="Material_T" name="Material_T">
+						{%for x in Materiales %}
+				    	<option value="{{x}}">{{x}}</option>
+						{% endfor %}
+					</select>
+				</td>
+
+
+				<td id ="td_sT"></td>
+				<td id ="td_saT0"></td>
+				<td id ="td_saT1"></td>
+				<td id ="td_saT2"></td>
+				<td id ="td_saT3"></td>
+				<td id ="td_saT4"></td>
+				<td id ="td_saT5"></td>
+			</tr>
+		</table>
+		<table id = "Tabla_P" class = "table1">
+			<colgroup>
+			    	<col width = "250px" style="background-color:#ffd966">
+					<col width = "250px" style="background-color:#fff6b7">
+			  	</colgroup>
+			<tr>
+				<td id="td_P">
+					Piso
+				</td>
+				<td>
+					<select id="Material_P" name="Material_P">
+				    	{%for x in Materiales %}
+				    	<option value="{{x}}">{{x}}</option>
+				     	{% endfor %}
+					  </select>
+					  
+				</td>
+				<td id ="td_sP"></td>
+				<td id ="td_saP0"></td>
+				<td id ="td_saP1"></td>
+				<td id ="td_saP2"></td>
+				<td id ="td_saP3"></td>
+				<td id ="td_saP4"></td>
+				<td id ="td_saP5"></td>
+			</tr>
+		</table>
+		<table id = "Tabla_WF" class = "table1">
+			<colgroup>
+			    	<col width = "250px"  style="background-color:#ffd966">
+					<col width = "250px" style="background-color:#fff6b7">
+					<col width = "108px">
+					<col width = "108px">
+					<col width = "108px">
+					<col width = "108px">
+					<col width = "108px">
+					<col width = "108px">
+					<col width = "108px">
+			  	</colgroup>
+			<tr>
+				<td id="td_WF">
+					Pared Frontal
+				</td>
+				<td>
+					<select id="Material_WF" name="Material_WF">
+				    	{%for x in Materiales %}
+				    	<option value="{{x}}">{{x}}</option>
+				     	{% endfor %}""></option>
+					</select>
+				</td>
+				<td id ="td_sWF"></td>
+				<td id ="td_saWF0"></td>
+				<td id ="td_saWF1"></td>
+				<td id ="td_saWF2"></td>
+				<td id ="td_saWF3"></td>
+				<td id ="td_saWF4"></td>
+				<td id ="td_saWF5"></td>
+			</tr>
+		</table>
+		<table id = "Tabla_WB" class = "table1">
+			<colgroup>
+			    	<col width = "250px" style="background-color:#ffd966">
+					<col width = "250px" style="background-color:#fff6b7">
+					<col width = "108px">
+					<col width = "108px">
+					<col width = "108px">
+					<col width = "108px">
+					<col width = "108px">
+					<col width = "108px">
+					<col width = "108px">
+			  	</colgroup>
+			<tr>
+				<td id="td_WB">
+					Pared Trasera
+				</td>
+				<td>
+					<select id="Material_WB" name="Material_WB">
+				    	{%for x in Materiales %}
+				    	<option value="{{x}}">{{x}}</option>
+				     	{% endfor %}
+					  </select>
+				</td>
+				<td id ="td_sWB"></td>
+				<td id ="td_saWB0"></td>
+				<td id ="td_saWB1"></td>
+				<td id ="td_saWB2"></td>
+				<td id ="td_saWB3"></td>
+				<td id ="td_saWB4"></td>
+				<td id ="td_saWB5"></td>
+			</tr>
+		</table>
+		<table id = "Tabla_WL" class = "table1">
+			<colgroup>
+			    	<col width = "250px" style="background-color:#ffd966">
+					<col width = "250px" style="background-color:#fff6b7">
+					<col width = "108px">
+					<col width = "108px">
+					<col width = "108px">
+					<col width = "108px">
+					<col width = "108px">
+					<col width = "108px">
+					<col width = "108px">
+			  	</colgroup>
+			<tr>
+				<td id="td_WL">
+					Pared Izquierda
+				</td>
+				<td>
+					<select id="Material_WL" name="Material_WL">
+				    	{%for x in Materiales %}
+				    	<option value="{{x}}">{{x}}</option>
+				     	{% endfor %}
+				  	</select>
+				</td>
+				<td id ="td_sWL"></td>
+				<td id ="td_saWL0"></td>
+				<td id ="td_saWL1"></td>
+				<td id ="td_saWL2"></td>
+				<td id ="td_saWL3"></td>
+				<td id ="td_saWL4"></td>				
+				<td id ="td_saWL5"></td>
+			</tr>
+		</table>
+		<table id = "Tabla_WR" class = "table1">
+			<colgroup>
+			    	<col width = "250px" style="background-color:#ffd966">
+					<col width = "250px" style="background-color:#fff6b7">
+					<col width = "108px">
+					<col width = "108px">
+					<col width = "108px">
+					<col width = "108px">
+					<col width = "108px">
+					<col width = "108px">
+					<col width = "108px">
+			  	</colgroup>
+			<tr>
+				<td id="td_WR">
+					Pared Derecha
+				</td>
+				<td>
+					<select id="Material_WR" name="Material_WR">
+				    	{%for x in Materiales %}
+				    	<option value="{{x}}">{{x}}</option>
+				     	{% endfor %}
+				  	</select>
+				</td>
+				<td id ="td_sWR"></td>
+				<td id ="td_saWR0"></td>
+				<td id ="td_saWR1"></td>
+				<td id ="td_saWR2"></td>
+				<td id ="td_saWR3"></td>
+				<td id ="td_saWR4"></td>
+				<td id ="td_saWR5"></td>
+			</tr>
+		</table>
+		<br>
+		<table id = "Tabla_Suma" class = "table1">
+			<colgroup>
+				<col width = "250px" style="background-color:#ffd966">
+				<col width = "250px" style="background-color:#fff6b7">
+				<col width = "108px">
+				<col width = "108px">
+				<col width = "108px">
+				<col width = "108px">
+				<col width = "108px">
+				<col width = "108px">
+				<col width = "108px">
+			</colgroup>
+			<tr>
+				<td id="td_WR">
+					Total
+				</td>
+				<td>
+				</td>
+				<td id ="td_sS"></td>
+				<td id ="td_saS0"></td>
+				<td id ="td_saS1"></td>
+				<td id ="td_saS2"></td>
+				<td id ="td_saS3"></td>
+				<td id ="td_saS4"></td>
+				<td id ="td_saS5"></td>
+			</tr>
+		</table>
+	</div>
+
+	<div id = "R">		
+		<div id ="R1">
+			<table class="table3">
+				<tr>
+					<th><h2>Recinto</h2></th>
+					<td><p><input type="text" name="nm"/></td>
+				</tr>
+			</table>
+		</div>
+		<div id = "R2">
+			<br>						
+			<table class="table2">
+				<tr>
+					<th>Ancho</th>
+					<td>
+						<p><input
+							id = "x"
+							type="number" 
+							step ="0.1" 
+							name="x"/>
+							<span style="margin-left:10px;">m</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<th>Altura</th>
+					<td>
+						<p><input
+						id = "y" 
+						type="number" 
+						step ="0.1" 
+						name="y"/>
+						<span style="margin-left:10px;">m</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<th>Profundidad</th>
+					<td>
+						<p><input
+						id = "z"
+						type="number" 
+						step ="0.1" 
+						name="z"/>
+						<span style="margin-left:10px;">m</span>
+						</p>
+					</td>
+				</tr>
+			</table>
+			<br>
+			<table class="table2">
+				<tr>
+					<th>Área</th>
+					<td id = "td_Area"></td>
+				</tr>
+				<tr>
+					<th>Volúmen</th>
+					<td id = "td_Volumen"></td>
+				</tr>
+			</table>
+
+		</div>
+		<div id = "R3">
+			<br>
+			<table class="table2">
+				<tr>
+					<th>Objeto</th>
+					<td id="td_Objeto"></td>
+				</tr>
+				<tr>
+					<th>Pared</th>
+					<td id="td_Pared"></td>
+				</tr>
+				<tr>
+					<th>Largo</th>
+					<td id="td_Largo"></td>
+				</tr>
+				<tr>
+					<th>Ancho</th>
+					<td id ="td_Ancho"></td>
+				</tr>
+				<tr>
+					<th>Superficie</th>
+					<td id="td_Superficie"></td>
+				</tr>
+
+			</table>
+			<br>
+			<table class="table2">
+				<br>
+				<tr>
+				<th>Material</th>
+					<td id="td_Material">
+					</td>
+				</tr>
+				<tr>
+					<th>Coeficientes</th>
+					<td>
+						<table class="table4">
+							<tr>
+								<th>125 hz</th>
+								<td id="td_C1"></td>
+							</tr>
+							<tr>
+								<th>250 hz</th>
+								<td id="td_C2"></td>
+							</tr>
+							<tr>
+								<th>500 hz</th>
+								<td id="td_C3"></td>
+							</tr>
+							<tr>
+								<th>1000 hz</th>
+								<td id="td_C4"></td>
+							</tr>
+							<tr>
+								<th>2000 hz</th>
+								<td id="td_C5"></td>
+							</tr>
+							<tr>
+								<th>4000 hz</th>
+								<td id="td_C6"></td>
+							</tr>							
+						</table>
+					</td>
+				</tr>
+		</table>		
+
+		<div style="text-align: center;">
+			<input 	id = "Calcular"
+					class = "boton"
+					type="submit"
+					value="Calcular">
+		</div>
+	</form>
+
+	<div style="text-align: center;">
+		<input 	id = "add_objeto"
+				class = "boton2"
+				type="button"
+				value="Añadir Objeto">
+
+			<input 	id = "delete_objeto"
+				class = "boton2"
+				type="button"
+				value="Quitar Objeto">
+	</div>
+
+		</div>
+		<div id = "R4">
+			<table class="table3">
+				<tr>
+					<th><h2>RT60</h2></th>
+					<td id ="RT60" style="border:solid 1px black;"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock %}

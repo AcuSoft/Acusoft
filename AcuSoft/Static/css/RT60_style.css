@@ -1,0 +1,256 @@
+body {
+    font-family: Monserrat, sans-serif;
+}
+
+div#General{
+
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+}
+
+div#L{
+    float: left;
+    height: 100%;
+    width: 73%;
+    
+}
+
+div#L1{
+    margin:auto;
+}
+
+div#L2{
+    margin: auto;
+    width: 70%;
+
+}
+
+div#R{
+    float: right;   
+    height: 100%;
+    width: 27%;
+    }
+
+div#R1{
+    float:left;
+    width: 100%;
+    box-shadow:0px 0px 0px 1px black inset;
+    margin-bottom: 2%;
+    
+}
+
+div#R2{
+    float:right;
+    width: 100%;
+    margin-bottom: 2%;
+    box-shadow:0px 0px 0px 1px black inset;
+}
+
+div#R3{
+	margin:auto;
+    width: 100%;
+    height: 480px;
+    
+}
+
+table.paredes {
+    margin:auto;
+    width: 98%;
+    background-color: white;
+    border-collapse:collapse;
+    border-bottom: solid 2px #a4a4a4;
+}
+
+table.paredes th {
+    text-align: center;
+    padding:1%;
+    width: 5%;
+}
+
+table.paredes th:hover{
+    background: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+table.paredes td {
+    text-align: center;
+    padding:1%;
+    width: 5%;
+
+    
+}
+
+table.header {
+    margin:auto;
+    width: 98%;
+    background-color: white;
+    border-collapse:collapse;
+    border-bottom: solid 2px #a4a4a4;
+}
+
+table.header th {
+    padding:1%;
+    width: 5%;
+    background-color:#ffc000;
+    border-bottom: solid 5px #d5a103;
+    text-align: center;
+}
+
+table.header td {
+    text-align: center;
+    padding:1%;
+    width: 5%;
+
+    
+}
+
+
+table.resultados{
+    margin:auto;
+    width: 98%;
+    background-color: white;
+    border-collapse:collapse;
+}
+
+table.resultados td {
+    text-align: center;
+    padding:1%;
+}
+
+table.inspectordimensiones{
+    margin:auto;
+    width:90%;
+    border-collapse: collapse;
+    text-align: left;
+    
+    
+    
+}
+
+table.inspectordimensiones th{
+    padding: 1%;
+    border-bottom: 1px solid #ddd;
+    width: 50%;
+}
+
+table.inspectordimensiones td{
+    padding: 1%;
+    border-bottom: 1px solid #ddd;
+    width: 50%;
+    
+}
+
+table.RT60{
+	margin:auto;	
+    width: 100%;
+    border-collapse: collapse;
+}
+table.RT60 th{
+	margin:auto;	
+	width: 40%;
+	height: 100%;
+	background-color: #ffc000;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+}
+table.RT60 td{
+	margin:auto;
+	width: 60%;
+	height: 100%;
+	background-color: #ffffff;
+	text-align: center;
+	display: table-cell;
+    vertical-align: middle;
+    
+}
+
+
+.input{
+    width: 50%;
+}
+
+.boton{
+	margin:auto;
+	text-align: center;
+	width: 90%;
+	height: 30px;
+	margin-top: 20px;
+}
+
+.boton2{
+	margin:auto;
+	text-align: center;
+	width: 44.9%;
+	height: 30px;
+}
+
+
+
+
+#dialogoverlay{
+	display:none;
+	background-color:#ffffff;
+	opacity:0.7;
+	width:100%;
+	top:0px;
+	left:0px;
+	position:fixed;
+	z-index:10;
+}
+
+#dialogbox{
+    display:none;
+	position:fixed;
+	background:#a4a4a4;
+	width:20%;
+	z-index:10;
+	border-radius:2px;
+}
+#dialogbox div{
+    background:#ffffff; 
+    margin:2px;
+}
+#dialogbox #dialogboxhead{ 
+    background: #ffc000;  
+    padding:5px; 
+    color:
+    #000; }
+
+#dialogbox #dialogboxbody{ 
+    background:white; 
+    padding:20px; 
+    color:#000; 
+}
+
+#dialogboxhead{
+    border-bottom: solid 5px #d5a103;
+    text-align: center;
+}
+
+#dialogbox #dialogboxfoot{ 
+    background:  #fff; 
+    padding:10px; 
+    text-align:center; 
+}
+
+#box{position:absolute; left:360px; top:180px;}
+
+.tabla_prompt{
+    width: 100%;
+}
+
+.tabla_prompt th{
+    width: 33%;
+    text-align: left;
+}
+
+.tabla_prompt td{
+    width: 67%;
+}
+
+.input2{
+    width: 80%;
+}

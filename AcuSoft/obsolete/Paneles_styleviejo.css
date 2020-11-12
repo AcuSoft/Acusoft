@@ -1,0 +1,180 @@
+* {
+	margin:0px;
+	padding:0px;
+}
+
+body {
+	background-color: #ffffff;
+	font-family: Monserrat, sans-serif;
+}
+
+div#General{
+	margin:auto;
+	width: 1920px;
+	height: 1055px;
+    background-color: #424242;
+    
+}
+
+div#L{
+	margin:auto;
+	width: 520px;
+	height: 980px;
+	background-color: #ffffff;
+	margin-top: 25px;
+	margin-left: 50px;
+	float: left;
+}
+
+div#L2{
+	margin:auto;
+	margin-top: 20px;
+	margin-left: 20px;
+	width: 480px;
+	height: 240px;
+	background-color: #ffffff;
+	border:solid 2px black;
+}
+
+div#R{
+	float: right;
+	margin:auto;
+	margin-top: 25px;
+	margin-right: 50px;
+	width: 1300px;
+	height: 980px;
+	background-color: #ffffff;
+
+}
+
+div#R1_D{
+	margin:auto;
+	margin-top: 20px;
+	margin-left: 20px;
+	width: 480px;
+	height: 240px;
+	background-color: #ffffff;
+	border:solid 2px black;
+	
+}
+
+div#R2_D{
+	margin:auto;
+	margin-top: 20px;
+	margin-left: 20px;
+	width: 480px;
+	height: 240px;
+	background-color: #ffffff;
+	border:solid 2px black;
+}
+
+div#R1_P{
+	margin:auto;
+	margin-top: 20px;
+	margin-left: 20px;
+	width: 480px;
+	height: 240px;
+	background-color: #ffffff;
+	border:solid 2px black;
+	
+}
+
+div#R2_P{
+	margin:auto;
+	margin-top: 20px;
+	margin-left: 20px;
+	width: 480px;
+	height: 240px;
+	background-color: #ffffff;
+	border:solid 2px black;
+}
+
+
+table.table1 {
+	width: 440px;
+	margin:auto;
+	text-align: left;
+  	border-collapse: collapse;
+  	padding: 20px;
+}
+table.table1 th, table.table1 td{
+	padding: 5px;
+	text-align: left;
+  	border-bottom: 1px solid #ddd;
+}
+table.table1 th {
+	width: 50%;
+}
+
+.boton{
+		margin:auto;
+		text-align: center;
+		width: 288px;
+		height: 30px;
+		margin-top: 20px;
+	}
+
+.slidecontainer {
+		width: 100%; /* Width of the outside container */
+	  }
+	  
+	  /* The slider itself */
+	  .slider {
+		-webkit-appearance: none;  /* Override default CSS styles */
+		appearance: none;
+		width: 100%; /* Full-width */
+		height: 25px; /* Specified height */
+		background: #d3d3d3; /* Grey background */
+		outline: none; /* Remove outline */
+		opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+		-webkit-transition: .2s; /* 0.2 seconds transition on hover */
+		transition: opacity .2s;
+	  }
+	  
+	  /* Mouse-over effects */
+	  .slider:hover {
+		opacity: 1; /* Fully shown on mouse-over */
+	  }
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none; /* Override default look */
+	appearance: none;
+	width: 25px; /* Set a specific slider handle width */
+	height: 25px; /* Slider handle height */
+	background: #4CAF50; /* Green background */
+	cursor: pointer; /* Cursor on hover */
+  }
+  
+  .slider::-moz-range-thumb {
+	width: 25px; /* Set a specific slider handle width */
+	height: 25px; /* Slider handle height */
+	background: #4CAF50; /* Green background */
+	cursor: pointer; /* Cursor on hover */
+  }
+	  
+
+div#grafico{
+	box-shadow:0px 0px 0px 1px black inset;
+	float: right;
+	width: 500px;
+	height: 500px;
+	margin:auto;
+	margin-top: 20px;
+	margin-right: 20px;
+	text-align:center;
+}
+
+#grafico_panel{
+	width: 0px;
+	height: 0px;
+	box-shadow:0px 0px 0px 1px black inset;
+	background-color: tomato;
+	display: inline;
+	margin: 0;
+	position: relative;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	
+}

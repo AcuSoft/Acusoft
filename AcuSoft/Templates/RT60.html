@@ -1,0 +1,423 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/RT60_style.css'%}">
+{% endblock %}
+
+{% block title %}Cálculo RT60{% endblock %}
+{% block content %}
+        <form method="GET" action="/RT60_resp/" id="RT60_Form" >
+        <div id = "General">
+            <div id = "L">
+            <div id = "L1">
+                <br>
+                <table class = "header">
+                    <col width = "15%" style="background-color:#ffd966">
+                    <col width = "15%" style="background-color:#ffd966">
+					
+                    <thead>
+                        <tr>
+                            <th>Pared</th>
+                            <th>Material</th>
+                            <th>Superficie</th>
+                            <th>125 hz</th>
+                            <th>250 hz</th>
+                            <th>500 hz</th>
+                            <th>1000 hz</th>
+                            <th>2000 hz</th>
+                            <th>4000 hz</th>
+                        </tr>
+                    </thead>
+                </table>
+                <table id = "Tabla_T" class = "paredes">
+                    <colgroup>
+                            <col width = "15%" style="background-color:#ffd966">
+                            <col width = "15%" style="background-color:#fff6b7">
+                          </colgroup>
+                    <tr>
+                        <th id="td_T">
+                            Techo
+                        </th>
+                        <td>
+                            <select id="Material_T" name="Material_T">
+                                {%for x in Materiales %}
+                                <option value="{{x}}">{{x}}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                        
+                        <td id ="td_sT"></td>
+                        <script>
+                            for (var i = 0;i<6;i++) {
+                                document.write("<td id ='td_saT"+ i +"'></td>")
+                            }
+                            
+                        </script>
+                    </tr>
+                </table>
+                <table id = "Tabla_P" class = "paredes">
+                    <colgroup>
+                            <col width = "15%" style="background-color:#ffd966">
+                            <col width = "15%" style="background-color:#fff6b7">
+                          </colgroup>
+                    <tr>
+                        <th id="td_P">
+                            Piso
+                        </th>
+                        <td>
+                            <select id="Material_P" name="Material_P">
+                                {%for x in Materiales %}
+                                <option value="{{x}}">{{x}}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                        
+                        <td id ="td_sP"></td>
+                        <script>
+                            for (var i = 0;i<6;i++) {
+                                document.write("<td id ='td_saP"+ i +"'></td>")
+                            }
+                            
+                        </script>
+                    </tr>
+                </table>
+                <table id = "Tabla_WF" class = "paredes">
+                    <colgroup>
+                            <col width = "15%" style="background-color:#ffd966">
+                            <col width = "15%" style="background-color:#fff6b7">
+                          </colgroup>
+                    <tr>
+                        <th id="td_WF">
+                            Pared Frontal
+                        </th>
+                        <td>
+                            <select id="Material_WF" name="Material_WF">
+                                {%for x in Materiales %}
+                                <option value="{{x}}">{{x}}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                        
+                        <td id ="td_sWF"></td>
+                        <script>
+                            for (var i = 0;i<6;i++) {
+                                document.write("<td id ='td_saWF"+ i +"'></td>")
+                            }
+                            
+                        </script>
+                    </tr>
+                </table>
+                <table id = "Tabla_WB" class = "paredes">
+                    <colgroup>
+                            <col width = "15%" style="background-color:#ffd966">
+                            <col width = "15%" style="background-color:#fff6b7">
+                          </colgroup>
+                    <tr>
+                        <th id="td_WB">
+                            Pared Trasera
+                        </th>
+                        <td>
+                            <select id="Material_WB" name="Material_WB">
+                                {%for x in Materiales %}
+                                <option value="{{x}}">{{x}}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                        
+                        <td id ="td_sWB"></td>
+                        <script>
+                            for (var i = 0;i<6;i++) {
+                                document.write("<td id ='td_saWB"+ i +"'></td>")
+                            }
+                            
+                        </script>
+                    </tr>
+                </table>
+                <table id = "Tabla_WL" class = "paredes">
+                    <colgroup>
+                            <col width = "15%" style="background-color:#ffd966">
+                            <col width = "15%" style="background-color:#fff6b7">
+                          </colgroup>
+                    <tr>
+                        <th id="td_WL">
+                            Pared Izquierda
+                        </th>
+                        <td>
+                            <select id="Material_WL" name="Material_WL">
+                                {%for x in Materiales %}
+                                <option value="{{x}}">{{x}}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                        
+                        <td id ="td_sWL"></td>
+                        <script>
+                            for (var i = 0;i<6;i++) {
+                                document.write("<td id ='td_saWL"+ i +"'></td>")
+                            }
+                            
+                        </script>
+                    </tr>
+                </table>
+                <table id = "Tabla_WR" class = "paredes">
+                    <colgroup>
+                            <col width = "15%" style="background-color:#ffd966">
+                            <col width = "15%" style="background-color:#fff6b7">
+                          </colgroup>
+                    <tr>
+                        <th id="td_WR">
+                            Pared Derecha
+                        </th>
+                        <td>
+                            <select id="Material_WR" name="Material_WR">
+                                {%for x in Materiales %}
+                                <option value="{{x}}">{{x}}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                        
+                        <td id ="td_sWR"></td>
+                        <script>
+                            for (var i = 0;i<6;i++) {
+                                document.write("<td id ='td_saWR"+ i +"'></td>")
+                            }
+                            
+                        </script>
+                    </tr>
+                </table>
+                <br>
+                    <table id = "Tabla_Suma" class = "paredes">
+                        <colgroup>
+                                <col width = "15%" style="background-color:#ffd966">
+                                <col width = "15%" style="background-color:#fff6b7">
+                              </colgroup>
+                        <tr>
+                            <td id="td_S">
+                                RT60
+                            </td>
+                            <td></td>
+                            
+                            <td id ="td_sS"></td>
+                            <script>
+                                for (var i = 0;i<6;i++) {
+                                    document.write("<td id ='td_saS"+ i +"'></td>")
+                                }
+                                
+                            </script>
+                        </tr>
+                    </table>
+                </div>
+                <div id = "L2">
+                    <canvas id = "Grafica_RT60">
+
+                    </canvas>
+                </div>          
+            </div>
+
+            <div id = "R">
+                <br>
+                <div id = "R1">
+                    <br>
+                    <table class="inspectordimensiones">
+                        <tr>
+                            <th>Ancho</th>
+                            <td>
+                                <p><input
+                                    id = "x"
+                                    class = "input"
+                                    type="number" 
+                                    step ="0.01" 
+                                    name="x"/>
+                                    <span>m</span>       
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Altura</th>
+                            <td>
+                                <p><input
+                                id = "y"
+                                class = "input"
+                                type="number"
+                                step ="0.01" 
+                                name="y"/>
+                                <span>m</span>
+                                </p>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Profundidad</th>
+                            <td>
+                                <p><input
+                                id = "z"
+                                class = "input"
+                                type="number" 
+                                step ="0.01" 
+                                name="z"/>
+                                <span>m</span>
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                    <table class="inspectordimensiones">
+                        <tr>
+                            <th>Área</th>
+                            <td id = "td_Area"></td>
+                        </tr>
+                        <tr>
+                            <th>Volúmen</th>
+                            <td id = "td_Volumen"></td>
+                        </tr>
+                    </table>
+                    <br>
+                </div>
+                <div id="R2">
+                    <br>
+                    <table class="inspectordimensiones">
+                        <tr>
+                            <th>Objeto</th>
+                            <td id="td_Objeto"></td>
+                        </tr>
+                        <tr>
+                            <th>Pared</th>
+                            <td id="td_Pared"></td>
+                        </tr>
+                        <tr>
+                            <th>Largo</th>
+                            <td id="td_Largo"></td>
+                        </tr>
+                        <tr>
+                            <th>Ancho</th>
+                            <td id ="td_Ancho"></td>
+                        </tr>
+                        <tr>
+                            <th>Superficie</th>
+                            <td id="td_Superficie"></td>
+                        </tr>
+                    </table>
+                    <br>
+                    <table class="inspectordimensiones">
+                        <tr>
+                        <th>Material</th>
+                            <td id="td_Material">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Coeficientes</th>
+                            <td>
+                                <table class="inspectordimensiones">
+                                    <tr>
+                                        <th>125 hz</th>
+                                        <td id="td_C1"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>250 hz</th>
+                                        <td id="td_C2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>500 hz</th>
+                                        <td id="td_C3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>1000 hz</th>
+                                        <td id="td_C4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>2000 hz</th>
+                                        <td id="td_C5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>4000 hz</th>
+                                        <td id="td_C6"></td>
+                                    </tr>							
+                                </table>
+                            </td>
+                        </tr>
+                </table>
+
+                <div style="text-align: center;">
+                    <input 	id = "Calcular"
+                            class = "boton"
+                            type="submit"
+                            value="Calcular">
+                </div>
+                </form>
+
+                <br>
+                <div style="text-align: center;">
+                    <input 	id = "Tabla"
+                            class = "boton2"
+                            type="button"
+                            value="Tabla">
+            
+                        <input 	id = "Grafica"
+                            class = "boton2"
+                            type="button"
+                            value="Gráfica">
+
+                </div>
+            <br>
+            </div>
+                <br>
+                <div id = "R3">
+                    <table class="RT60">
+                        <tr>
+                            <th><h2>RT60</h2></th>
+                            <td id ="RT60" style="border:solid 1px black;"></td>
+                        </tr>
+                        <tr>
+                            <th>Desv</th>
+                            <td id ="desv" style="border:solid 1px black;"></td>
+                        </tr>
+                    </table>
+                </div>		
+            </div>   
+
+<div id="dialogoverlay"></div>
+
+<div id="dialogbox"> 
+    <div id="dialogboxhead">
+        <strong>Añadir objeto</strong>
+    </div>
+    <div id="dialogboxbody">
+        <table class = "tabla_prompt">
+            <tr>
+                <th>Nombre</th>
+                <td><input id="nombre_objeto" class = "input2"/></td>
+            </tr>
+            <tr>
+                <th>Material</th>
+                <td>
+                    <select id="material_objeto"  class = "input2" name="material_objeto">
+                        {%for x in Materiales %}
+                        <option value="{{x}}">{{x}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Altura</th>
+                <td><input id="largo_objeto" type = "number" step = "0.01" class = "input2" /><span> m</span></td>
+            </tr>
+            <tr>
+                <th>Base</th>
+                <td><input id="ancho_objeto" type = "number" step = "0.01" class = "input2" /><span> m</span></td>
+            </tr>
+
+        </table>
+    </div>
+    <div id="dialogboxfoot">
+        <input 	id = "anadir"
+            class = "boton2"
+            type="button"
+            value="Añadir">
+
+        <input 	id = "cancelar"
+            class = "boton2"
+            type="button"
+            value="Cancelar">
+    </div>
+</div>
+{% endblock %}

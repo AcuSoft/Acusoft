@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/Paneles_style.css'%}">
+{% endblock %}
+{% block title %}Diseño de Paneles{% endblock %}
+{% block content %}
+<div id="General">
+    <form action="/Paneles_resp/" method="GET" id = "Paneles_Form">
+        
+        <div id ="L">
+            <div id = "L2" style="text-align: center;">
+                <br>
+
+                <table class = "table1">
+                    <tr>
+                        <th><p>Frecuencia</p></td>
+                        <td><p><input id = "f" name = "f" type = "number" step = "1"/></p></td>
+                    </tr>
+                    <tr>
+                        <th><p>Factor Q</p></th>
+                        <td><input id = "q" name = "q" type= "number" step = "0.01" value = "4.33"/></td>
+                    </tr>
+                    <tr>
+                        <th><p>Tipo de panel</p></th>
+                        <td>
+                            <select id = "tipo" name = "tipo" type="select">
+                                <option value = ""></option>
+                                <option value = "Perforado">Perforado</option>
+                                <option value = "Difragmático">Difragmático</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <input id = "Calcular" class = "boton" value = "Calcular" type="submit"/>
+            <br>
+            </div>
+            <div id = "L2">
+                <br>
+                <table class = "table1">
+                    <tr>
+                        <th>Ancho de Banda</th>
+                        <td id = "td_bw"></td>
+                    </tr>
+                    <tr>
+                        <th>Frecuencia Superior</th>
+                        <td id = "td_fh"></td>
+                    </tr>
+                    <tr>
+                        <th>Frecuencia Inferior</th>
+                        <td id = "td_fl"></td>
+                    </tr>
+                    <tr>
+                        <th>RT60</th>
+                        <td id = "td_RT60"></td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+
+        <div id = "R">
+            <div id = "R1_D">
+                <br>
+                
+                <table class = "table1">
+
+                    <tr>
+                        <th>Base</th>
+                        <td><input id = "db" name = "db" type="number" step="0.01"/></td>
+                    </tr>
+                    <tr>
+                        <th>Altura</th>
+                        <td><input id = "dh" name = "dh" type="number" step="0.01"/></td>
+                    </tr>
+                    <tr>
+                        <th>Masa</th>
+                        <td><input id = "dm" name = "dm" type="number" step="0.01"/></td>
+                    </tr>
+                </table>
+            </div>
+            <div id = "R2_D">
+                <br>
+                <table class = "table1">
+                    <tr>
+                        <th>Densidad superficial</th>
+                        <td id ="td_dd"></td>
+                    </tr>
+                    <tr>
+                        <th>Espacio de Aire</th>
+                        <td id = "td_de"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id = "R1_P">
+                <br>
+                <table class = "table1">
+                    <tr>
+                        <th>Base</th>
+                        <td><input id = "pb" name = "pb" type="number" step="0.01"/></td>
+                    </tr>
+                    <tr>
+                        <th>Altura</th>
+                        <td><input id = "ph" name = "ph" type="number" step="0.01"/></td>
+                    </tr>
+                    <tr>
+                        <th>Grosor</th>
+                        <td><input id = "pg" name = "pg" type="number" step="0.01"/></td>
+                    </tr>
+                    <tr>
+                        <th>Diametro</th>
+                        <td>
+                            <select id = "pd" name = "pd" type="select">
+                                <option value = "0.125">1/8 in</option>
+                                <option value = "0.25">1/4 in</option>
+                                <option value = "0.375">3/8 in</option>
+                                <option value = "0.5">1/2 in</option>
+                                <option value = "0.625">5/8 in</option>
+                                <option value = "0.75">3/4 in</option>
+                                <option value = "0.875">7/8 in</option>
+                                <option value = "1">1 in</option>
+                                <option value = "2">2 in</option>
+                                <option value = "4">4 in</option>
+                                <option value = "8">8 in</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Porcentaje de perforación</th>
+                        <td><input id = "pp" name = "pp" type="number" step="0.01"/></td>
+                    </tr>
+                </table>
+            </div>
+            </form>
+
+            <div id = "R2_P">
+                <br>
+                <table class = "table1">
+                    <tr>
+                        <th>Número de orificios</th>
+                        <td id ="td_pn"></td>
+                    </tr>
+                    <tr>
+                        <th>Separación entre orificios</th>
+                        <td id = "td_ps"></td>
+                    </tr>
+                    <tr>
+                        <th>Espacio de aire</th>
+                        <td id = "td_pe"></td>
+                    </tr>
+                </table> 
+            </div>
+            <div id = "grafico">
+                <canvas id = "grafico_panel"></canvas>
+            </div>
+        </div>
+    </form>
+</div>
+{% block js %}<script src="{% static 'js/Paneles.js' %}"></script>{% endblock %}
+{% endblock %}
